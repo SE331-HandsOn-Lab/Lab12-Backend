@@ -10,17 +10,22 @@ import se331.lab.rest.entity.OrganizerDTO;
 import se331.lab.rest.security.entity.OrganizerAuthDTO;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Mapper
+@Mapper(imports = Collectors.class)
 public interface LabMapper {
     LabMapper INSTANCE = Mappers.getMapper(LabMapper.class);
+
     EventDTO getEventDto(Event event);
+
     List<EventDTO> getEventDto(List<Event> events);
 
     OrganizerDTO getOrganizerDTO(Organizer organizer);
+
     List<OrganizerDTO> getOrganizerDTO(List<Organizer> organizers);
 
-    @Mapping(target = "authorities", source = "user.authorities")
+    @Mapping(target = "authorities",
+            expression = "java(organizer.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
     OrganizerAuthDTO getOrganizerAuthDTO(Organizer organizer);
 
 
