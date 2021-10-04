@@ -21,4 +21,3 @@ jwt:
     authentication:
       path: auth
       refresh: refresh
- 
