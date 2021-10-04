@@ -8,6 +8,8 @@ import se331.lab.rest.entity.EventDTO;
 import se331.lab.rest.entity.Organizer;
 import se331.lab.rest.entity.OrganizerDTO;
 import se331.lab.rest.security.entity.OrganizerAuthDTO;
+import se331.lab.rest.security.entity.User;
+import se331.lab.rest.security.entity.UserDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,4 +31,5 @@ public interface LabMapper {
     OrganizerAuthDTO getOrganizerAuthDTO(Organizer organizer);
 
 
+    UserDTO getUserDTO(User u);
 }
