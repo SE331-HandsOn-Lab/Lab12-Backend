@@ -43,11 +43,11 @@ jobs:
           push: true
           tags: khematat01/331-securitylab:latest
       -
-      name: prepare the docker-compose run
-      run: |
-        mkdir 331-backend
-        cp docker-compose-prod.yml 331-backend/docker-compose.yml
-        cd 331-backend
-        docker-compose -H ${{ secrets.HOST_SERVER }} down
-        docker-compose -H ${{ secrets.HOST_SERVER }} pull
-        docker-compose -H ${{ secrets.HOST_SERVER }} up -d
+        name: prepare the docker-compose run
+        run: |
+          mkdir 331-backend
+          cp docker-compose-prod.yml 331-backend/docker-compose.yml
+          cd 331-backend
+          docker-compose -H ${{ secrets.HOST_SERVER }} down
+          docker-compose -H ${{ secrets.HOST_SERVER }} pull
+          docker-compose -H ${{ secrets.HOST_SERVER }} up -d
